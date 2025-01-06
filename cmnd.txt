@@ -1,0 +1,21 @@
+	SMT EXAM 
+	Aishwarya Dudhal
+	PRN: 240840127004
+Q1.write firewall rules
+#systemctl status firewalld.service
+a) allow icmp for all lan ips
+ commant
+#firewall-cmd  --zone=public --add-rich-rule='rule family="ipv4" source address="192.168.1.0/24" protocol value="icmp" accept ' --permanent
+#firewall-cmd  --reload
+#firewall-cmd --list-all
+b) enable web browsing
+command
+#firewall-cmd --zone=public --add-port=80/tcp --permanent
+#firewall-cmd --zone=public --add-port=443/tcp --permanent
+#firewall-cmd  --zone=public --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" reject ' --permanent
+#firewall-cmd  --reload
+#firewall-cmd --list-all
+c)drop all other traffic that does not match these rules.
+commands#firewall-cmd  --zone=public --add-rich-rule='rule family="ipv4" source address="192.168.1.0/24"  drop ' --permanent
+#firewall-cmd  --reload
+#firewall-cmd --list-all
